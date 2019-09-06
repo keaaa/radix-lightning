@@ -1,0 +1,30 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: echo
+spec:
+  environments:
+    - name: development
+      build:
+        from: master
+  components:
+    - name: www
+      src: ./www
+      publicPort: http
+      ports:
+       - name: http
+         port: 3000
+      environmentConfig:
+        - environment: development
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
+  dnsAppAlias:
+    environment: development
+    component: www
