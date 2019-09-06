@@ -18,6 +18,7 @@ router.get('/api/echo', function(req, res) {
         'RADIX_ENVIRONMENT': (process.env.RADIX_ENVIRONMENT || 'empty'),
         'HOSTNAME': (os.hostname() || 'empty'),
         'HOSTPLATFORM': (os.platform() || '0'),
+        'FROM': 'API',
         'MATH_PI': Math.PI,
         'PI_GREGORY_LEIBNIZ': pi,
         'PI_NILAKATHAN': pi2,

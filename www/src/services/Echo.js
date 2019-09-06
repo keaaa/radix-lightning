@@ -17,14 +17,15 @@ const loadDataMock = () => {
         "RADIX_COMPONENT": "echo",
         "RADIX_ENVIRONMENT": "development",
         "HOSTNAME":"my-computer",
-        "HOSTPLATFORM":"linux"
+        "HOSTPLATFORM":"linux",
+        "FROM":"mock"
       };
       resolve(data)
     })
 }
 
 const loadDataFromApi = (path) => {
-  return fetch(path, getFetchInit()).then(result=> {return result.json()})
+  return fetch(path, getFetchInit()).then(result=> {return result.json()});
 }
 
 // disable cache on http requests
