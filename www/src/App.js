@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.refreshInterval = 1000;
     this.mockData = true;
