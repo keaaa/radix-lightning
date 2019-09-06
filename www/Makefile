@@ -1,5 +1,5 @@
 deploy-base:
-	docker build -t keaaa/www-base .
+	docker build -t keaaa/www-base -f base.Dockerfile .
 	docker push keaaa/www-base:latest 
 
 build:
