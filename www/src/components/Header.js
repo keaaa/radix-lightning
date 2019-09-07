@@ -5,7 +5,7 @@ const Header = () => {
   return <header className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
     <p>
-      Welcome to Radix workshop
+      Welcome to Radix lightning talk
     </p>
     <a
       className="App-link"
