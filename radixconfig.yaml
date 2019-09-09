@@ -11,7 +11,6 @@ spec:
   components:
     - name: www
       image: nginx:latest
-      # src: ./www
       publicPort: http
       ports:
        - name: http
