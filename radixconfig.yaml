@@ -10,8 +10,8 @@ spec:
     - name: production
   components:
     - name: www
-      image: nginx:latest
-      # src: ./www
+      # image: nginx:latest
+      src: ./www
       publicPort: http
       ports:
        - name: http
@@ -27,22 +27,22 @@ spec:
               memory: "54Mi"
               cpu: "20m"
           replicas: 1
-    - name: echo
-      src: ./echo
-      ports:
-       - name: http
-         port: 3001
-      environmentConfig:
-        - environment: development
-          monitoring: true
-          resources:
-            requests:
-              memory: "50Mi"
-              cpu: "50m"
-            limits:
-              memory: "54Mi"
-              cpu: "200m"
-          replicas: 2
+    # - name: echo
+    #   src: ./echo
+    #   ports:
+    #    - name: http
+    #      port: 3001
+    #   environmentConfig:
+    #     - environment: development
+    #       monitoring: true
+    #       resources:
+    #         requests:
+    #           memory: "50Mi"
+    #           cpu: "50m"
+    #         limits:
+    #           memory: "54Mi"
+    #           cpu: "200m"
+    #       replicas: 2
   dnsAppAlias:
     environment: development
     component: www
