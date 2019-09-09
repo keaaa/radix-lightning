@@ -8,21 +8,23 @@ spec:
       build:
         from: master
     - name: production
-      build:
-        from: master
   components:
     - name: www
-      image: nginx:latest
-      # src: ./www
+      src: ./www
       publicPort: http
       ports:
        - name: http
-         port: 80
-    - name: echo
-      src: ./echo
-      ports:
-       - name: http
-         port: 3001
+         port: 3000
+    # - name: echo
+    #   src: ./echo
+    #   ports:
+    #    - name: http
+    #      port: 3001
+    #   environmentConfig:
+    #     - environment: development
+    #       replicas: 2
+    #     - environment: production
+    #       replicas: 2
   dnsAppAlias:
     environment: development
     component: www
