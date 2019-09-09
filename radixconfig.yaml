@@ -10,8 +10,8 @@ spec:
     # - name: production
   components:
     - name: www
-      # src: ./www
       image: nginx:latest
+      # src: ./www
       publicPort: http
       ports:
        - name: http
