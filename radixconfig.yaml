@@ -7,14 +7,15 @@ spec:
     - name: development
       build:
         from: master
-    - name: production
+    # - name: production
   components:
     - name: www
-      src: ./www
+      # src: ./www
+      image: nginx:latest
       publicPort: http
       ports:
        - name: http
-         port: 3000
+         port: 80
       environmentConfig:
         - environment: development
           monitoring: false

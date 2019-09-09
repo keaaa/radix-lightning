@@ -19,7 +19,7 @@ const loadDataMock = () => {
         "HOSTNAME":"my-computer",
         "HOSTPLATFORM":"linux",
         "FROM":"mock",
-        "RANDOM_STR": "some_not_so_random_string"
+        "RANDOM_STR": "not_so_random_string"
       };
       resolve(data)
     })

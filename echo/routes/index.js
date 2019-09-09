@@ -10,6 +10,7 @@ const maxIterations = 10000000;
 router.get('/api/echo', function(req, res) {
     const pi = calcPiGregoryLeibniz();
     const pi2 = calcPiNilakantha();
+    const random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
     var responseObject = {
         'RADIX_APP': (process.env.RADIX_APP || 'empty'),
@@ -22,6 +23,7 @@ router.get('/api/echo', function(req, res) {
         'MATH_PI': Math.PI,
         'PI_GREGORY_LEIBNIZ': pi,
         'PI_NILAKATHAN': pi2,
+        'RANDOM_STR': random
     };
 
     res.set('Content-Type', 'application/json');
