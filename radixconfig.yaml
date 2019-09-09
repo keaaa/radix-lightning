@@ -7,7 +7,7 @@ spec:
     - name: development
       build:
         from: master
-    # - name: production
+    - name: production
   components:
     - name: www
       image: nginx:latest
