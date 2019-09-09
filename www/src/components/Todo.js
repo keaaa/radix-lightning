@@ -13,6 +13,8 @@ const Todo = () => {
         <br />
         - connect API to UI and deploy
         <br />
+        - verified app
+        <br/>
         - promoted to production
     </div>
 }

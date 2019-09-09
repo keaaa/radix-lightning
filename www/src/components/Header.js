@@ -11,7 +11,7 @@ const Header = () => {
       Omnia Radix is a Platform-as-a-Service. 
       <br/>
       <br/>
-      It builds, deploys, host and monitors applications, automating the boring stuff and letting developers focus on code.
+      It builds, deploys, host and monitors applications, letting developers focus on code and features.
     </p>
   </header>
 }
