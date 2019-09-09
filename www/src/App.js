@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.refreshInterval = 1000;
+    this.refreshInterval = 1010;
     this.mockData = true;
     
     this.state ={
