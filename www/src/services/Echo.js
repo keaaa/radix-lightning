@@ -18,7 +18,8 @@ const loadDataMock = () => {
         "RADIX_ENVIRONMENT": "development",
         "HOSTNAME":"my-computer",
         "HOSTPLATFORM":"linux",
-        "FROM":"mock"
+        "FROM":"mock",
+        "RANDOM_STR": "some_not_so_random_string"
       };
       resolve(data)
     })
