@@ -1,5 +1,5 @@
 # build environment
-FROM keaaa/www-base:latest as build
+FROM keaaa/www-lightning-base:latest as build
 WORKDIR /app
 COPY . /app
 RUN npm run build
