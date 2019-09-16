@@ -18,5 +18,5 @@ spec:
        - name: http
          port: 80
   dnsAppAlias:
-    environment: development
+    environment: production
     component: www

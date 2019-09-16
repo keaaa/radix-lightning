@@ -26,5 +26,5 @@ spec:
         - environment: production
           replicas: 2
   dnsAppAlias:
-    environment: development
+    environment: production
     component: www
