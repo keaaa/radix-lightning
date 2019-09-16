@@ -12,17 +12,11 @@ spec:
         from: master
   components:
     - name: www
-      image: nginx:latest
-      # src: ./www
+      src: ./radixconfigs
       publicPort: http
       ports:
        - name: http
          port: 80
-    - name: echo
-      src: ./echo
-      ports:
-       - name: http
-         port: 3001
   dnsAppAlias:
     environment: development
     component: www

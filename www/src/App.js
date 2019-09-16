@@ -35,12 +35,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <div className="split left">
-          <Todo />
-        </div>
-        <div className="split right">
-          <Echo result={this.state.echoResult} refreshInterval={this.refreshInterval} nrRefresh={this.state.nrRefresh} />
-        </div>
+        <Echo result={this.state.echoResult} refreshInterval={this.refreshInterval} nrRefresh={this.state.nrRefresh} />
       </div>
     );
   }
