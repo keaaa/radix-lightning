@@ -8,15 +8,23 @@ spec:
       build:
         from: master
     - name: production
-      build:
-        from: master
   components:
     - name: www
-      src: ./radixconfigs
+      src: ./www
       publicPort: http
       ports:
        - name: http
-         port: 80
+         port: 3000
+    - name: echo
+      src: ./echo
+      ports:
+       - name: http
+         port: 3001
+      environmentConfig:
+        - environment: development
+          replicas: 2
+        - environment: production
+          replicas: 2
   dnsAppAlias:
-    environment: development
+    environment: production
     component: www
