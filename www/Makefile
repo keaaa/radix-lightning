@@ -1,6 +1,6 @@
 deploy-base:
 	docker build -t keaaa/www-lightning-base -f base.Dockerfile .
-	docker push keaaa/www-base:latest 
+	docker push keaaa/www-lightning-base:latest 
 
 build:
 	docker build -t www-lightning .
