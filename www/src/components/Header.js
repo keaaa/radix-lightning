@@ -6,13 +6,21 @@ const Header = () => {
     <img src={logo} className="App-logo" alt="logo" />
     <p>
       Welcome to Radix lightning talk
-      <br/>
-      <br/>
-      Omnia Radix is a Platform-as-a-Service. 
-      <br/>
-      <br/>
-      It builds, deploys, host and monitors applications, letting developers focus on code and features.
     </p>
+    <div className="App-description">
+    <br/>
+    Radix is an application platform built to increase development speed by providing  
+    <br />
+    the best possible tools to develop and run your applications.
+    </div>
+    <a
+      className="App-link"
+      href="https://www.radix.equinor.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn more
+    </a>
   </header>
 }
 

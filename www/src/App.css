@@ -31,6 +31,10 @@
   overflow-x: hidden;
 }
 
+.App-description {
+  font-size: calc(10px + 1vmin);
+}
+
 /* Control the left side */
 .left {
   padding-top: 20px;
