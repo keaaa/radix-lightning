@@ -1,8 +1,7 @@
 import React from 'react';
-import Echo from './components/Echo'
-import Todo from './components/Todo'
-import Header from './components/Header'
+import Timewriting from './components/Timewriting'
 import EchoService from './services/Echo'  
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends React.Component {
@@ -10,11 +9,10 @@ class App extends React.Component {
     super();
 
     this.refreshInterval = 1000;
-    this.mockData = false;
+    this.mockData = true;
     
     this.state ={
-      echoResult: {},
-      nrRefresh: 0
+      echoResult: {}
     }
   }
 
@@ -34,8 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Echo result={this.state.echoResult} refreshInterval={this.refreshInterval} nrRefresh={this.state.nrRefresh} />
+        <Timewriting />
       </div>
     );
   }
