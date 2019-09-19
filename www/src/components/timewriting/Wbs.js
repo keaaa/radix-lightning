@@ -1,7 +1,12 @@
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, ListGroup } from 'react-bootstrap';
 
 const wbs = (props) => {
+    const wbsList = props.wbsList.map((wbs, i) => (
+        <ListGroup.Item action active={i===0} >
+            {wbs}
+        </ListGroup.Item>
+    ));
     return (
         <Modal show={props.show}>
             <Modal.Header closeButton>
@@ -9,8 +14,9 @@ const wbs = (props) => {
             </Modal.Header>
         
             <Modal.Body>
-            <p>select wbs/network</p>
-            <p>maybe a comment?</p>
+                <ListGroup defaultActiveKey="#link1" variant="flush">
+                {wbsList}
+                </ListGroup>
             </Modal.Body>
         
             <Modal.Footer>

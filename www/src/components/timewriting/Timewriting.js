@@ -21,6 +21,9 @@ class Day extends Component {
       date: '2019-02-15',
       showAddHours: false,
       showSetWbs: false,
+      addHours: 0, 
+      wbs: '',
+      wbsList: [],
       current: {
         ExpectedHoursWorked: '7.5',
       },
@@ -31,7 +34,7 @@ class Day extends Component {
     const service = TimewritingService();
     service.fetchDate(this.state.date)
       .then(result => {
-        this.setState({ current: result })
+        this.setState({ current: result, wbsList: result.TimeEntries.results.map(entries => entries.CostObjectId) })
         this.updateHours(result.ExpectedHoursWorked)
       });
   }
@@ -45,7 +48,8 @@ class Day extends Component {
   }
 
   showAddHours = () => {
-    this.setState({showAddHours: true, showSetWbs: false});
+    const hoursLeft = parseFloat(this.state.current.ExpectedHoursWorked) - parseFloat(this.state.current.ActualHoursWorked);
+    this.setState({showAddHours: true, showSetWbs: false, addHours: hoursLeft > 0 ? hoursLeft : 0, wbs: ''});
   }
 
   showSetWbs = () => {
@@ -53,14 +57,35 @@ class Day extends Component {
   }
 
   closeAddHours = () => {
-    this.setState({showAddHours: false, showSetWbs: false})
+    this.setState({showAddHours: false, showSetWbs: false, addHours: 0, wbs: ''});
+  }
+
+  updateAddHours = (input) => {
+    this.setState({addHours: input.target.value})
+  }
+
+  saveAddHours = () => {
+    console.log("hours: " + this.state.addHours + " wbs: " + this.state.wbs);
+    this.closeAddHours();
   }
 
   render() {
     return (
       <Container>
-        <Hours show={this.state.showAddHours} close={this.closeAddHours} next={this.showSetWbs} />
-        <Wbs show={this.state.showSetWbs} close={this.closeAddHours} save={this.closeAddHours} />
+        <Hours 
+          show={this.state.showAddHours} 
+          close={this.closeAddHours} 
+          next={this.showSetWbs} 
+          hours={this.state.addHours} 
+          updateAddHours={this.updateAddHours} 
+          linkInputBox={this.linkToHoursTxBox} 
+        />
+        <Wbs 
+          show={this.state.showSetWbs} 
+          close={this.closeAddHours} 
+          save={this.saveAddHours} 
+          wbsList={this.state.wbsList}
+        />
         <Form>
           <br />
           <Header from={this.state.from} to={this.state.to} date={this.state.date} lunch={this.lunch} expectedHoursWorked={this.state.current.ExpectedHoursWorked} />

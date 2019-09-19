@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, InputGroup, FormControl } from 'react-bootstrap';
 
 const hours = (props) => {
     return (
@@ -9,12 +9,21 @@ const hours = (props) => {
             </Modal.Header>
         
             <Modal.Body>
-            <p>Add hours box</p>
+                <InputGroup className="mb-3">
+                    <FormControl 
+                        placeholder="Number of hours"  
+                        onChange={props.updateAddHours} 
+                        value={props.hours == 0 ? '' : props.hours} 
+                    />
+                    <InputGroup.Append>
+                        <InputGroup.Text id="basic-addon2">hours</InputGroup.Text>
+                    </InputGroup.Append>
+                </InputGroup>
             </Modal.Body>
         
             <Modal.Footer>
             <Button variant="secondary" onClick={props.close}>Close</Button>
-            <Button variant="primary" onClick={props.next}>Next</Button>
+            <Button variant="primary" onClick={() => props.next()}>Next</Button>
             </Modal.Footer>
         </Modal>
     )
