@@ -53,11 +53,15 @@ class Day extends Component {
   }
 
   showSetWbs = () => {
-    this.setState({showAddHours: false, showSetWbs: true});
+    this.setState({showAddHours: false, showSetWbs: true, wbs: this.state.wbsList[0]});
   }
 
   closeAddHours = () => {
     this.setState({showAddHours: false, showSetWbs: false, addHours: 0, wbs: ''});
+  }
+
+  selectWbs = (input) => {
+    this.setState({wbs:input.target.value});
   }
 
   updateAddHours = (input) => {
@@ -85,6 +89,8 @@ class Day extends Component {
           close={this.closeAddHours} 
           save={this.saveAddHours} 
           wbsList={this.state.wbsList}
+          selectedWbs={this.state.wbs}
+          selectWbs={this.selectWbs}
         />
         <Form>
           <br />

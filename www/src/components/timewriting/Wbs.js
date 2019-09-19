@@ -3,7 +3,7 @@ import { Button, Modal, ListGroup } from 'react-bootstrap';
 
 const wbs = (props) => {
     const wbsList = props.wbsList.map((wbs, i) => (
-        <ListGroup.Item action active={i===0} >
+        <ListGroup.Item action active={props.selectedWbs === wbs} onClick={props.selectWbs} value={wbs} key={wbs} >
             {wbs}
         </ListGroup.Item>
     ));
