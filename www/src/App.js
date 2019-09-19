@@ -1,5 +1,5 @@
 import React from 'react';
-import Timewriting from './components/Timewriting'
+import Timewriting from './components/timewriting/Timewriting'
 import EchoService from './services/Echo'  
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -31,9 +31,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <div className="App">
         <Timewriting />
-      </div>
     );
   }
 }
