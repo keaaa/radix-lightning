@@ -7,6 +7,9 @@ spec:
     - name: development
       build:
         from: master
+    - name: qa
+      build:
+        from: feature/timewriting
     - name: production
   components:
     - name: www
