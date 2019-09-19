@@ -4,6 +4,8 @@ import { Button, Container, Form, Col } from 'react-bootstrap';
 import TimewritingService from './Service';
 import TimeEntries from './TimeEntries';
 import Header from './Header';
+import Hours from './Hours';
+import Wbs from './Wbs';
 import moment from 'moment';
 
 class Day extends Component {
@@ -17,6 +19,8 @@ class Day extends Component {
       from: '',
       to: '',
       date: '2019-02-15',
+      showAddHours: false,
+      showSetWbs: false,
       current: {
         ExpectedHoursWorked: '7.5',
       },
@@ -24,10 +28,6 @@ class Day extends Component {
   }
 
   componentDidMount() {
-    this.loadCurrent();
-  }
-
-  loadCurrent = () => {
     const service = TimewritingService();
     service.fetchDate(this.state.date)
       .then(result => {
@@ -44,9 +44,23 @@ class Day extends Component {
     this.setState({ hours: nrHours, from: from, to: to });
   }
 
+  showAddHours = () => {
+    this.setState({showAddHours: true, showSetWbs: false});
+  }
+
+  showSetWbs = () => {
+    this.setState({showAddHours: false, showSetWbs: true});
+  }
+
+  closeAddHours = () => {
+    this.setState({showAddHours: false, showSetWbs: false})
+  }
+
   render() {
     return (
       <Container>
+        <Hours show={this.state.showAddHours} close={this.closeAddHours} next={this.showSetWbs} />
+        <Wbs show={this.state.showSetWbs} close={this.closeAddHours} save={this.closeAddHours} />
         <Form>
           <br />
           <Header from={this.state.from} to={this.state.to} date={this.state.date} lunch={this.lunch} expectedHoursWorked={this.state.current.ExpectedHoursWorked} />
@@ -55,16 +69,7 @@ class Day extends Component {
               ? <TimeEntries timeEntries={this.state.current.TimeEntries.results} />
               : <div />
           }
-          <Form.Group controlId="formActions">
-            <Form.Row>
-              <Col>
-                <Button variant="primary" type="submit">Add hours</Button>
-              </Col>
-              <Col>
-                <Button variant="primary" type="submit">Save</Button>
-              </Col>
-            </Form.Row>
-          </Form.Group>
+          <Button variant="primary" style={{width: '90vw'}} onClick={this.showAddHours}>Add hours</Button>
         </Form>
       </Container>
     );

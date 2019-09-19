@@ -3,7 +3,7 @@ import { Form, Col } from 'react-bootstrap';
 
 const timeEntries = (props) => {
     const entries = props.timeEntries.map(entry => (
-        <Form.Row>
+        <Form.Row key={entry.Id}>
             <Col>
                 <Form.Label>{entry.CostObjectId}</Form.Label>
             </Col>
