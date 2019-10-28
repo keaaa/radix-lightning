@@ -100,7 +100,7 @@ class Day extends Component {
               ? <TimeEntries timeEntries={this.state.current.TimeEntries.results} />
               : <div />
           }
-          <Button variant="primary" style={{width: '90vw'}} onClick={this.showAddHours}>Add hours</Button>
+          <Button variant="primary" style={{width: '100%'}} onClick={this.showAddHours}>Add hours</Button>
         </Form>
       </Container>
     );
