@@ -41,6 +41,3 @@ spec:
               cpu: "1000m"
             limits:
               memory: "516Mi"
-  dnsAppAlias:
-    environment: production
-    component: www
