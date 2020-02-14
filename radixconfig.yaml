@@ -18,6 +18,17 @@ spec:
       ports:
        - name: http
          port: 3000
+      environmentConfig:
+        - environment: development
+          horizontalScaling:
+            minReplicas: 2
+            maxReplicas: 16
+          resources:
+            requests:
+              memory: "516Mi"
+              cpu: "1000m"
+            limits:
+              memory: "516Mi"
     - name: echo
       src: ./echo
       ports:
@@ -25,7 +36,15 @@ spec:
          port: 3001
       environmentConfig:
         - environment: development
-          replicas: 2
+          horizontalScaling:
+            minReplicas: 2
+            maxReplicas: 16
+          resources:
+            requests:
+              memory: "516Mi"
+              cpu: "1000m"
+            limits:
+              memory: "516Mi"
         - environment: production
           replicas: 2
   dnsAppAlias:
