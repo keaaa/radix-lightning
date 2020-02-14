@@ -7,10 +7,6 @@ spec:
     - name: development
       build:
         from: master
-    - name: qa
-      build:
-        from: feature/timewriting
-    - name: production
   components:
     - name: www
       src: ./www
@@ -45,8 +41,6 @@ spec:
               cpu: "1000m"
             limits:
               memory: "516Mi"
-        - environment: production
-          replicas: 2
   dnsAppAlias:
     environment: production
     component: www
