@@ -21,7 +21,7 @@ spec:
       environmentConfig:
         - environment: development
           horizontalScaling:
-            minReplicas: 2
+            minReplicas: 1
             maxReplicas: 16
           resources:
             requests:
@@ -37,7 +37,7 @@ spec:
       environmentConfig:
         - environment: development
           horizontalScaling:
-            minReplicas: 2
+            minReplicas: 1
             maxReplicas: 16
           resources:
             requests:
